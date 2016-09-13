@@ -6,12 +6,16 @@ font-family: 'Playfair Display', serif;
 font-family: 'Noto Serif', serif;
 font-family: 'Noto Sans', sans-serif;
 */
+* {
+	box-sizing: border-box;
+}
+
 .container {
 	max-width: 768px;
 	min-width: 320px;
 	background-color: #777;
 	padding: 20px;
-	margin: 0 auto;
+	/*margin: 0 auto;*/
 	display: block;
 }
 
