@@ -8,6 +8,8 @@ font-family: 'Noto Sans', sans-serif;
 acacac
 */
 
+
+
 * {
     box-sizing: border-box;
 }
@@ -18,13 +20,14 @@ body {
 }
 
 .container {
-    max-width: 768px;
+    /*max-width: 768px;*/
+    max-width: 320px;
     min-width: 320px;
-    margin: 0;
-    padding: 20px 24px;
+    margin: auto;
+    padding: 10px 2px;
 }
 
-.item-full-width, .item , .ad-1, .ad-2 {
+.item-full-width, .item , .ad-1, .ad-2, .ad-3 {
     position: relative;
     float: left;
     line-height: 0;
@@ -45,6 +48,11 @@ body {
     float: right;
 }
 
+.ad-3 {
+    padding-top: 8px;
+    padding-bottom: 7px;
+}
+
 .thumbnail {
     width: 100%;
     height: auto;
@@ -58,8 +66,8 @@ body {
 .date-top-label {
     position: absolute;
     line-height: 20px;
-    left: 16px;
-    top: 16px;
+    left: 9px;
+    top: 9px;
     width: 80px;
     height: 53px;
     background: rgba(255, 255, 255, .8);
@@ -85,7 +93,7 @@ body {
 
 .top-day {
     font-size: 18px;
-    padding-top: 3px;
+    padding-top: 8px;
 }
 
 
@@ -94,27 +102,34 @@ body {
     padding-top: 2px;
 }
 
-.month:after, .top-month:after {
+.month:after {
     content: " ";
     position: absolute;
     background: url(../img/arrow.png) no-repeat;
     width: 3px;
     height: 5px;
-    left: 65px;
-    top: 20px;
+    left: 81.5%;
+    top: 47.8%;
 }
-
-.top-month:after {
-    left: 65px;
-    top: 20px;
-}
-
 
 h1 {
     font-family: 'Playfair Display', serif;
     color: #010101;
     text-transform: uppercase;
-    font-size: 30px;
+    font-size: 26px;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    line-height: 40px;
+}
+
+h1:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    border-bottom: 2px solid #000;   
+    margin-top: 28px;
+    margin-left: 18px;
 }
 
 .details {
@@ -131,8 +146,6 @@ h1 {
 .fullsize-img:after {
     content: '';
     position: absolute;
-
-    
     width: 0;
     height: 0;
     border-bottom: 100px solid black;
@@ -142,9 +155,69 @@ h1 {
     left: 65px;
 }
 
-@media (min-width: 450px) {
+.header {
+    padding-bottom: 7px;
+}
+    /* =-=-=-=-=-=-= Pagination  =-=-=-=-=-=-= */
+.paginator {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 13px;
+    position: relative;
+    padding-top: 9px;
+}
+
+.paginator ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.paginator li {
+    display: inline-block;
+    margin-left: 0px;
+    position: relative;
+}
+
+.paginator li a {
+    text-decoration: none;
+    border-radius: 50%;
+    display: block;
+    position: relative;
+    margin: 0px 4px;
+    padding: 3px 13px;
+    text-align: center;
+    line-height: 25px;
+}
+
+.paginator li a:visited {
+    color: #000;
+}
+
+.paginator li a.active {
+    background: #e6e6e6 none repeat scroll 0 0;
+    border-color: #e6e6e6;
+    font-weight: bold;
+}
+
+.paginator li a.prev {
+    display: none;
+    padding-left: 0px;
+    margin-left: 0px;
+    color: #848484;
+}
+
+.paginator li:nth-child(2) a{
+    margin-left: 0px;
+}
+
+ .item:nth-child(25) , .item:nth-child(26) , .item:nth-child(27) .item:nth-child(28), .item:nth-child(29) , .item:nth-child(30) , .item:nth-child(31), .item:nth-child(32), .item:nth-child(33) {
+    display: none;
+}
+
+/*@media (min-width: 450px) and (max-width: 599px) {*/
+@media (min-width: 3450px) and (max-width: 6599px) {
     .item-full-width, .item, .ad-1, .ad-2 {
-        padding: 1.04%;
+        padding: 5px;
     }
 
     .item {
@@ -157,22 +230,66 @@ h1 {
         padding-bottom: 2.6%;
     }
 
-    h1 {
-        font-size: 40px;
+    .header {
+        padding-bottom: 23px;
     }
 
     .container {
         margin-top: 0px;
-        margin-left: 0px;
-        padding-top: 0px;
-        padding-left: 14px;
-        padding-right: 14px;
+        padding: 34px 15px;
     }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h1:after {
+        margin-top: 35px;
+        margin-left: 17px;
+    }    
+
+    .month:after {
+        width: 3px;
+        height: 5px;
+        left: 81.5%;
+        top: 47.8%;
+    }
+
+    .top-month:after {
+        content: " ";
+        position: absolute;
+        background: url(../img/arrow.png) no-repeat;
+        width: 3px;
+        height: 5px;
+        left: 81.5%;
+        top: 47.8%;    
+        left: 86%;
+        top: 34%;
+    }    
+
+    .ad-3 {
+        display: none;
+    }
+
+    .paginator li a.prev {
+        display: block;
+    }
+
 }
 
-@media (min-width: 600px) {
-    .item-full-width, .item, .ad-1, .ad-2 {
+/*@media (min-width: 600px) {*/
+@media (min-width: 6000px) {
+    .item-full-width {
         padding: 1.3%;
+    }
+
+    .item, .ad-1, .ad-2 {
+        padding: 1.38%;
+    }
+
+    .header {
+        padding-bottom: 18px;
+        padding-top: 17px;
     }
 
     .item {
@@ -182,20 +299,17 @@ h1 {
     .ad-1, .ad-2 {
         display: block;
         width: 25%;
-        padding-bottom: 2.6%;
-    }
-
-    .item6:after, .item16:after {
-        content: ".";
-        display: block;
-        height: 0;
-        clear: both;
-        visibility: hidden;
+        padding-bottom: 2.8%;
     }
 
     h1 {
         font-size: 40px;
     }
+
+    h1:after {
+        margin-top: 35px;
+        margin-left: 14px;
+    }    
 
     .details {
         display: inline-block;
@@ -204,13 +318,11 @@ h1 {
     }
 
     .date-top-label {
-        position: absolute;
         line-height: 20px;
-        left: 30px;
-        top: 30px;
+        left: 29px;
+        top: 29px;
         width: 160px;
         height: 104px;
-        background: rgba(255, 255, 255, .8);
         padding-right: 2px;
     }
     
@@ -231,22 +343,52 @@ h1 {
     }
 
     .day  {
-        padding-top: 31px;
+        /*padding-top: 31px;*/
+        padding-top: 20%;
     }
 
     .month{
         padding-top: 12px;
     }
 
-    .month:after, .top-month:after {
+    .month:after {
         width: 3px;
         height: 5px;
-        left: 147px;
-        top: 48px;
+        left: 81.5%;
+        top: 47.8%;
     }
 
     .top-month:after {
-        left: 137px;
-        top: 35px;
-    }   
+        content: " ";
+        position: absolute;
+        background: url(../img/arrow.png) no-repeat;
+        width: 3px;
+        height: 5px;
+        left: 81.5%;
+        top: 47.8%;    
+        left: 86%;
+        top: 34%;
+    }    
+
+    .container {
+        padding: 20px 24.65px;
+    }    
+
+    .triangle  {
+        position: absolute;
+        background: url(../img/triangle.png) no-repeat;
+        width: 20px;
+        height: 10px;
+        left: 48.5%;
+        bottom: 10px;
+    } 
+
+    .ad-3 {
+        display: none;
+    }
+   
+    .paginator li a.prev {
+        display: block;
+    }
 }
+
