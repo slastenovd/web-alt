@@ -29,6 +29,7 @@
 
 .item {
     width: 25%;
+    position: relative;    
 }
 
 .ad-1, .ad-2 {
@@ -40,12 +41,7 @@
     padding-bottom: 7px;
 }
 
-.item__thumbnail {
-    width: 100%;
-    height: auto;
-}
-
-.item-full-width__fullsize-img {
+.item-full-width__fullsize-img, .item__thumbnail {
     width: 100%;
     height: auto;
 }
@@ -59,10 +55,6 @@
     height: 53px;
     background: rgba(255, 255, 255, .8);
     padding-right: 2px;
-}
-
-.item {
-    position: relative;
 }
 
 .date-label {
@@ -150,7 +142,7 @@
     font-family: 'Noto Sans', sans-serif;
     font-size: 13px;
     position: relative;
-    padding-top: 19px; /* !!! */
+    padding-top: 19px; 
 }
 
 .paginator ul {
@@ -203,6 +195,11 @@
 }
 
 @media (min-width: 450px) and (max-width: 599px) {
+    .container {
+        margin-top: 0px;
+        padding: 34px 15px;
+    }
+
     .hidden-mobile, .hidden-large {
         display: block;
     }
@@ -221,24 +218,20 @@
 
     .ad-1 {
         width: 40%;
-        padding-bottom: 7%;
+/*        padding-bottom: 7%;
         padding-left: 3.3%;
-    }
+*/    }
 
-    .header {
-        padding-bottom: 23px;
-    }
-
-    .container {
-        margin-top: 0px;
-        padding: 34px 15px;
-    }
 
     .date-top-label {
         left: 15px;
         top: 15px;
     }
     
+    .header {
+        padding-bottom: 23px;
+    }
+
     .header h1 {
         font-size: 40px;
     }
@@ -247,7 +240,6 @@
         margin-top: 35px;
         margin-left: 17px;
     }    
-
 
     .month:after {
         width: 3px;
@@ -274,19 +266,15 @@
         display: none;
     }    
 
-    .hidden-mobile {
-        display: block;
-    }
-
     .item-full-width, .item, .ad-1, .ad-2 {
         padding: 10px;
     }
 
     .ad-1, .ad-2 {
         width: 25%;
-        padding-bottom: 4.5%;
+/*        padding-bottom: 4.5%;
         padding-bottom: 22px;
-    }
+*/    }
 
     .header {
         padding-bottom: 18px;
