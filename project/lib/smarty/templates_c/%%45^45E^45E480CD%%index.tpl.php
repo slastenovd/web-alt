@@ -1,11 +1,11 @@
-<?php /* Smarty version 2.6.28, created on 2016-09-19 16:19:17
+<?php /* Smarty version 2.6.28, created on 2016-09-19 22:20:22
          compiled from index.tpl */ ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
   <title>День в фото</title>
 </head>
 <body>
@@ -45,5 +45,7 @@ unset($_smarty_tpl_vars);
 
   </div>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/adjustADs.js"></script>
 </body>
 </html>

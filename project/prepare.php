@@ -10,7 +10,7 @@ ph: +79622976146
 error_reporting(E_ERROR|E_WARNING|E_PARSE|E_NOTICE);
 ini_set('display_errors', 1);
 
-if (!defined("ITEMS_PER_PAGE"))     define("ITEMS_PER_PAGE", "10");
+if (!defined("ITEMS_PER_PAGE"))     define("ITEMS_PER_PAGE", "25");
 
 if (!defined("MY_DBSIMPLE_DIR"))    define("MY_DBSIMPLE_DIR", "lib/dbsimple/");
 if (!defined("MY_WIDEIMAGE_DIR"))   define("MY_WIDEIMAGE_DIR", "lib/WideImage/");

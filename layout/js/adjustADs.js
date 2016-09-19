@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	// Костыль - выравниваем сетку, т.к. рекламные блоки имеют разную высоту
+	// выравниваем сетку, т.к. рекламные блоки имеют разную высоту
 	var autoHeightADBlocks = function(){
 		var item_height = $('.item__thumbnail:first').height();
 		var item_pading_bottom = $('.item:first').css("padding-bottom").replace("px", "");
@@ -10,7 +10,6 @@ $(document).ready(function () {
 		} else {
 			resHeight = item_height*4 + item_pading_bottom*6 +2;
 		}
-		// console.log(windowWidth+' '+resHeight);
 		$('.ad-1').height( resHeight );
 		$('.ad-2').height( resHeight );
 	}

@@ -49,20 +49,14 @@ foreach ($rows as $num_row => $row) {
 	    $smarty->assign('thumbnail_url',$row['thumbnail_url']);
 	    $items.=$smarty->fetch('item.tpl');
 	}
+	
+	// реклама
+	if ( $block_counter >= 4 && !isset($ad1) ) { $items.=$smarty->fetch('ad-1.tpl');  $ad1=1; } 
+	if ( $block_counter >= 9 && !isset($ad3) ) { $items.=$smarty->fetch('ad-3.tpl');  $ad3=1; }
+	if ( $block_counter >= 20 && !isset($ad2) ){ $items.=$smarty->fetch('ad-2.tpl');  $ad2=1; }
+	 
 
-	if ( $block_counter === 5 ) { // реклама
-	    $items.=$smarty->fetch('ad-1.tpl');
-	} 
-
-	if ( $block_counter === 9 ) { // реклама
-	    $items.=$smarty->fetch('ad-3.tpl');
-	} 
-
-	if ( $block_counter === 20 ) { // реклама
-	    $items.=$smarty->fetch('ad-2.tpl');
-	} 
-
-	if ( $date_photo != $row['date'] && $block_counter > 1 ) { // устанавливаем блок с датой
+	if ( $date_photo != $row['date'] && $block_counter > 1 ) { // блок с датой
 		$smarty->assign('day_thumbnail', date('d',strtotime ($row['date'])) );
 		$smarty->assign('month_thumbnail', date('F',strtotime ($row['date'])) );
 	    $items .= $smarty->fetch('date.tpl');
