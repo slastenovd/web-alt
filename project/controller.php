@@ -36,6 +36,10 @@ switch ($_REQUEST['action']) {
                 $result['status']='success';
                 $result['message'] = "Фото успешно загружено";    
                 $result['photo_url'] = $photo_url;
+                $result['id'] = $id;
+                $result['description'] = $row['description'];
+                $result['author'] = $row['author'];
+                $result['date'] = $row['date'];
             } else {
                 $result['status']='error';
                 $result['message'] = "Не удалось корректно выполнить загрузку фото.";

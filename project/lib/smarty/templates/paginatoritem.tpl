@@ -1,0 +1,1 @@
+	    		<li><a href="#" class="paginator__active">1</a></li>

@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    // Удаление фото
     $(document).on('click','button.delete', function(){
         $(this).closest('button.delete').prop('disabled', true);;
         var thumbnail_wrapper = $(this).closest('div.thumbnail-wrapper');
@@ -20,34 +21,46 @@ $(document).ready(function () {
         });
     }); 
 
-    function showResponse(response){
+    // Загрузка фото на сервер
+    function showResponse(response) {
+
         $('#container_info').html(response.message);
 
-        if(response.status=='success'){
+        if(response.status=='success') {
             $('#container_info').removeClass('alert-danger').addClass('alert-success');
             $('#uploaded_img').attr('src',response.photo_url);
+            var newThumbnail = $('.thumbnail-wrapper:first').clone(true,true).insertBefore($('.thumbnail-wrapper:first'));
+            var caption = newThumbnail.children('div.thumbnail').children('div.caption');
+            caption.children('h3.img-description').html( response.description );
+            caption.children('p.img-author').children('span').html( response.author );
+            caption.children('p.img-date').children('span').html( response.date );
+            newThumbnail.children('div.thumbnail').children('img').attr('src', response.photo_url );
+            newThumbnail.children('div.thumbnail').children('div.id').html( response.id );
+            newThumbnail.children('div.thumbnail').attr('id','thumbnail-'+response.id);
         }
 
-        if(response.status=='error'){
+        if(response.status=='error') {
             $('#container_info').removeClass('alert-success').addClass('alert-danger');
             $('#uploaded_img').attr('src','');
         }
 
         $('#after_upload').fadeIn('slow');
-
         $('#dateField').val( formatDate(Date()) );
     }
 
-    function showModalResponse(response) {
-        switch( response.message ) {
+    // Изменение фото в модальном окне
+    function ModalResponse(response) {
+        switch( response.status ) {
             case 'success':
-                
+                var caption = $('#thumbnail-'+$('#modal_item_id').val()).children('div.caption');
+                caption.children('h3.img-description').html( $('#modal-description').val() );
+                caption.children('p.img-author').children('span').html( $('#modal-author').val() );
+                caption.children('p.img-date').children('span').html( $('#modal-date').val() );
                 break;
+
             case 'error':
                 break;
-
         }
-
         $('#editItemModal').modal('hide'); 
     }
  
@@ -60,24 +73,17 @@ $(document).ready(function () {
     });
 
     $('#editItemModalForm').ajaxForm({ 
-        success:       showModalResponse,   // post-submit callback 
+        success:       ModalResponse,   // post-submit callback 
         url:       'controller.php?action=save',         // override for form's 'action' attribute 
         dataType:  'json',        // 'xml', 'script', or 'json' (expected server response type) 
-        clearForm: true,           // clear all form fields after successful submit 
-        resetForm: true         // reset the form after successful submit 
     });
 
 
     $('#editItemModal').on('show.bs.modal', function (event) {
       var button = $(event.relatedTarget) // Button that triggered the modal
       var recipient = button.data('whatever') // Extract info from data-* attributes
-      // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-      // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
       var modal = $(this);
-      // modal.find('.modal-title').text('New message to ' + recipient)
-      // var thumbnailwrapper = button.closest('.img-description').html();
       var caption = button.closest('div.thumbnail').children('div.caption');
-      // console.log(caption);
 
       $('#modal_item_id').val( button.closest('div.thumbnail').children('div.id').html() );
 

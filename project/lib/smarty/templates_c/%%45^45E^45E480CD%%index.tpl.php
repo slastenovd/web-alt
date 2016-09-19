@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.28, created on 2016-09-18 22:13:33
+<?php /* Smarty version 2.6.28, created on 2016-09-19 16:19:17
          compiled from index.tpl */ ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -37,18 +37,12 @@
     <?php echo $this->_tpl_vars['items']; ?>
 
 
-    <div class="item-full-width">
-    	<div class="paginator">
-    		<ul>
-	    		<li><a href="#" class="paginator__prev">Страницы:</a></li>
-	    		<li><a href="#" class="paginator__active">1</a></li>
-	    		<li><a href="#">2</a></li>
-	    		<li><a href="#">3</a></li>
-	    		<li><a href="#">4</a></li>
-	    		<li><a href="#" class="paginator__next">Следующая</a></li>
-    		</ul>
-    	</div>
-    </div>
+    <?php $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => 'pagination.tpl', 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+ ?>
+
   </div>
 
 </body>

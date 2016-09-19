@@ -29,18 +29,8 @@
 
     {$items}
 
-    <div class="item-full-width">
-    	<div class="paginator">
-    		<ul>
-	    		<li><a href="#" class="paginator__prev">Страницы:</a></li>
-	    		<li><a href="#" class="paginator__active">1</a></li>
-	    		<li><a href="#">2</a></li>
-	    		<li><a href="#">3</a></li>
-	    		<li><a href="#">4</a></li>
-	    		<li><a href="#" class="paginator__next">Следующая</a></li>
-    		</ul>
-    	</div>
-    </div>
+    {include file='pagination.tpl'}
+
   </div>
 
 </body>

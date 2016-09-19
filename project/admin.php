@@ -3,7 +3,7 @@
 require_once "prepare.php";
 // $smarty->assign('items',$items) ;
 
-$rows = $db->select('SELECT * FROM photos order by date');
+$rows = $db->select('SELECT * FROM photos order by date desc');
 
 $items = '';
 
@@ -16,8 +16,6 @@ foreach ($rows as $num_row => $row) {
     $items.=$smarty->fetch('img.tpl');
 }
 
-
 $smarty->assign('items',$items) ;
 $smarty->display('admin.tpl');
-
 ?>
