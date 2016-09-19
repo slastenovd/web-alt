@@ -11,7 +11,9 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-	<title>Админка "фото дня"</title>
+	<title>Панель администратора "фото дня"</title>
+
+
 </head>
 <body>
 
@@ -19,7 +21,7 @@
 		<div class="row">
 		 <div class="col-md-12">
 			<div class="jumbotron center-block">
-			  <h1>Админка "Фото дня"</h1>
+			  <h1>Фото дня <small>Панель администратора</small> </h1>
 			 	<div id="after_upload" style="display: none">
 			 		<div id="container_info"  role="alert" class="alert"></div>
 			 		<img src="" alt="" id="uploaded_img" class="center-block">
@@ -49,16 +51,6 @@
 
 		 </div>
 
-		<nav aria-label="...">
-		  <ul class="pagination">
-		    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-		    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-		    <li ><a href="#">1 </a></li>
-		    <li ><a href="#">2 </a></li>
-		    <li ><a href="#">3 </a></li>
-		    <li ><a href="#">4 </a></li>
-		    <li ><a href="#">5 </a></li>
-		</nav>
 
 
 		</div>

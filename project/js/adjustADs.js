@@ -1,6 +1,6 @@
 $(document).ready(function () {
 	// выравниваем сетку, т.к. рекламные блоки имеют разную высоту
-	var autoHeightADBlocks = function(){
+	function autoHeightADBlocks() {
 		var item_height = $('.item__thumbnail:first').height();
 		var item_pading_bottom = $('.item:first').css("padding-bottom").replace("px", "");
 		var windowWidth = $(window).width() + 17;
@@ -18,6 +18,7 @@ $(document).ready(function () {
 		autoHeightADBlocks();
 	});
 
-	autoHeightADBlocks();
+	$(window).trigger("resize");
+	setTimeout('$(window).trigger("resize")', 500);
 
 });

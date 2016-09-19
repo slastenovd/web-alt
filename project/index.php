@@ -27,14 +27,14 @@ $block_counter = 1;
 $smarty->assign('hidden_mobile', 0) ;
 
 foreach ($rows as $num_row => $row) {
-	// echo '<br>'.$row['id'];
-	// if ($block_counter > 27){
-	// 	break;
-	// }
 
-	// if ($block_counter > 19){
-	// 	$smarty->assign('hidden_mobile', 1);
-	// }
+	if ( $date_photo != $row['date'] && $block_counter > 1 ) { // блок с датой
+		$smarty->assign('day_thumbnail', date('d',strtotime ($row['date'])) );
+		$smarty->assign('month_thumbnail', date('F',strtotime ($row['date'])) );
+	    $items .= $smarty->fetch('date.tpl');
+		$date_photo = $row['date'];
+    	$block_counter++;
+	} 
 
 	if ( $block_counter === 1 ) { 
 		// полноразмерное фото
@@ -54,28 +54,19 @@ foreach ($rows as $num_row => $row) {
 	if ( $block_counter >= 4 && !isset($ad1) ) { $items.=$smarty->fetch('ad-1.tpl');  $ad1=1; } 
 	if ( $block_counter >= 9 && !isset($ad3) ) { $items.=$smarty->fetch('ad-3.tpl');  $ad3=1; }
 	if ( $block_counter >= 20 && !isset($ad2) ){ $items.=$smarty->fetch('ad-2.tpl');  $ad2=1; }
-	 
-
-	if ( $date_photo != $row['date'] && $block_counter > 1 ) { // блок с датой
-		$smarty->assign('day_thumbnail', date('d',strtotime ($row['date'])) );
-		$smarty->assign('month_thumbnail', date('F',strtotime ($row['date'])) );
-	    $items .= $smarty->fetch('date.tpl');
-		$date_photo = $row['date'];
-    	$block_counter++;
-	} 
 
 	$block_counter++;
 }
 
 
-// Строим пагинацию
+// пагинация
 $paginationitems = '';
 $record_count = $db->selectCell("SELECT count(*) cnt FROM photos");
 $page_counter = ceil($record_count/ITEMS_PER_PAGE);
 if ($page_counter>1) {
 	for ($i=1; $i<=$page_counter ; $i++) { 
 		$url = "index.php?page=$i";
-		if ( $i == $page) {
+		if ( $i == $page ) {
 		    $paginationitems .= "<li><a class='paginator__active' href='$url'>$i</a></li>";
 		} else {
 		    $paginationitems .= "<li><a href='$url'>$i</a></li>";
@@ -83,6 +74,7 @@ if ($page_counter>1) {
 	}
 }
 
+$smarty->assign('page',$page);
 $smarty->assign('page_counter',$page_counter);
 $smarty->assign('paginationitems',$paginationitems);
 
